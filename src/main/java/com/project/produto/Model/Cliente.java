@@ -1,10 +1,14 @@
 package com.project.produto.Model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cliente {
@@ -22,6 +26,9 @@ public class Cliente {
 	
 	@Column(length = 20)
 	private String telefone;
+	
+ 	@OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL)
+	private List <Produto> produtos;
 
 	public Integer getId() {
 		return id;
@@ -63,4 +70,20 @@ public class Cliente {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
+	}
+	
+	
+
+
+	
+	
 }
