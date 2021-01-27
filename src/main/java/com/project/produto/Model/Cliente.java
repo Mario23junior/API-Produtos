@@ -15,6 +15,8 @@ public class Cliente {
 	
 	private String nome;
 	
+	private String email;
+	
 	@Column(length = 11)
 	private String cpf;
 	
@@ -24,9 +26,18 @@ public class Cliente {
 	public Integer getId() {
 		return id;
 	}
+	
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getNome() {
