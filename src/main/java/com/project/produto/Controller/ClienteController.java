@@ -74,12 +74,5 @@ public class ClienteController {
 		 Example<Cliente> listar = Example.of(clienteAll, matcher);
 		return clienteRepository.findAll(listar);
 	}
- 	
-	
-	
-	 
-	
-	
-	
-	
+ 
 }
