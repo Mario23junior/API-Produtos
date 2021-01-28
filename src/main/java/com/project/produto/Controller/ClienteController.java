@@ -20,7 +20,7 @@ import com.project.produto.Model.Cliente;
 import com.project.produto.Resitory.ClienteRepository;
 
 @RestController
-@RequestMapping("/api/gerence/product")
+@RequestMapping("/api/gerence/client")
 public class ClienteController {
      
 	 private ClienteRepository clienteRepository;
@@ -38,7 +38,7 @@ public class ClienteController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Cliente salvarDados(@RequestBody Cliente cliente) {
+	public Cliente salvarCli(@RequestBody Cliente cliente) {
 		return clienteRepository.save(cliente);
 	}
 	
