@@ -23,8 +23,8 @@ public class ClienteController {
 	@GetMapping("/{id}")
 	public Cliente obterPorId(@PathVariable Integer id) {
 		 return clienteRepository
-				           .findById(id)
-				           .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Cliente não encontrado na base"));
+				         .findById(id)
+				         .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Cliente não encontrado na base"));
 	}
 	 
 	
