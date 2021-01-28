@@ -1,5 +1,9 @@
 package com.project.produto.Controller;
 
+import java.util.List;
+
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -58,6 +62,17 @@ public class ClienteController {
 		                	 clienteRepository.save(cliente);
 		                	 return clienteBody;
 		                 }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Cliente não encontrado na base"));
+	}
+	
+	
+	@GetMapping
+	public List<Cliente> BuscarTodos(Cliente clienteAll) {
+		ExampleMatcher matcher = ExampleMatcher
+				           .matching()
+				           .withIgnoreCase()
+				           .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
+		 Example<Cliente> listar = Example.of(clienteAll, matcher);
+		return clienteRepository.findAll(listar);
 	}
  	
 	
