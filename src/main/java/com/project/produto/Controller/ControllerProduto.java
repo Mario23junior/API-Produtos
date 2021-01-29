@@ -1,6 +1,7 @@
 package com.project.produto.Controller;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,6 +48,18 @@ public class ControllerProduto {
 		                	  return prodBody;
 		                  }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Produto não encontrado"));
 	}
+	
+	@DeleteMapping("/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void deleteCli(@PathVariable Integer id) {
+		produtoRepository.findById(id)
+		                 .map(deletecli -> {
+		                	  produtoRepository.delete(deletecli);
+		                	  return deletecli;
+		                 }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT ,"Produto não encontrado para deletação"));
+ 	}
+	
+	
 }
 
 
