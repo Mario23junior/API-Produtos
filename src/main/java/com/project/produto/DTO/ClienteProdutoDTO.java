@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class ClienteProdutoDTO {
     
-	private String ClientId;
+	private Integer ClientId;
 	private String nome;
 	private String email;
 	private String telefone;
@@ -16,10 +16,12 @@ public class ClienteProdutoDTO {
 	private Integer quantidade;
 	
 	
-	public String getClientId() {
+	
+	
+	public Integer getClientId() {
 		return ClientId;
 	}
-	public void setClientId(String clientId) {
+	public void setClientId(Integer clientId) {
 		ClientId = clientId;
 	}
 	public String getNome() {
