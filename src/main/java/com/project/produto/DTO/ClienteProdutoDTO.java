@@ -16,7 +16,8 @@ public class ClienteProdutoDTO {
 	private Integer quantidade;
 	
 	
-	
+	public ClienteProdutoDTO() {
+ 	}
 	
 	public Integer getClientId() {
 		return ClientId;

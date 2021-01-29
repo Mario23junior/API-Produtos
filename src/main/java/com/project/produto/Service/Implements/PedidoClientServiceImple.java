@@ -39,12 +39,12 @@ public class PedidoClientServiceImple implements ClientPedidoService{
 		 clientProdDTO.setEmail(cliente.getEmail());
 		 clientProdDTO.setTelefone(cliente.getTelefone());
 		 
-		 List<Produto> produto = cliente.getProdutos();
-		 clientProdDTO.setNomeProd(((ClienteProdutoDTO) produto).getNome());
-		 clientProdDTO.setDescricao(((ClienteProdutoDTO) produto).getDescricao());
-		 clientProdDTO.setPreco(((ClienteProdutoDTO) produto).getPreco());
-		 clientProdDTO.setVendido(((ClienteProdutoDTO) produto).isVendido());
-		 clientProdDTO.setQuantidade(((ClienteProdutoDTO) produto).getQuantidade());
+		 Produto produto = cliente.getProdutos();
+		 clientProdDTO.setNomeProd(produto.getNome());
+		 clientProdDTO.setDescricao(produto.getDescricao());
+		 clientProdDTO.setPreco(produto.getPreco());
+		 clientProdDTO.setVendido(produto.isVendido());
+		 clientProdDTO.setQuantidade(produto.getQuantidade());
 		 return clientProdDTO;
 		 
 	}
