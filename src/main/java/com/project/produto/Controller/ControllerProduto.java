@@ -1,5 +1,9 @@
 package com.project.produto.Controller;
 
+import java.util.List;
+
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -58,6 +62,16 @@ public class ControllerProduto {
 		                	  return deletecli;
 		                 }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT ,"Produto não encontrado para deletação"));
  	}
+	
+	@GetMapping
+	public List<Produto> buscarTodos(Produto produtoAll) {
+		ExampleMatcher matcher = ExampleMatcher
+				              .matching()
+				              .withIgnoreCase()
+				              .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
+		Example<Produto> example = Example.of(produtoAll, matcher);
+		return produtoRepository.findAll(example);
+	}
 	
 	
 }
