@@ -12,34 +12,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.project.produto.DTO.ClienteProdutoDTO;
 import com.project.produto.Model.Cliente;
 import com.project.produto.Resitory.ClienteRepository;
-import com.project.produto.Service.ClientPedidoService;
 
 @RestController
 @RequestMapping("/api/gerence/client")
 public class ClienteController {
      
 	 private ClienteRepository clienteRepository;
-	 private ClientPedidoService clientProdService;
-	 
-	 public ClienteController(ClienteRepository clienteRepository, ClientPedidoService clientProdService) {
+ 	 
+	 public ClienteController(ClienteRepository clienteRepository) {
 		 this.clienteRepository = clienteRepository;
-		 this.clientProdService = clientProdService;
- 	}
+  	}
 	 
-	 @GetMapping("/log")
-	 @ResponseBody
-	 public List<ClienteProdutoDTO> getDetails(){
-		 List<ClienteProdutoDTO> userProd = clientProdService.obterDetalhes();
-		 return userProd;
-	 }
+	 
 	 
 	 
 	@GetMapping("/{id}")
