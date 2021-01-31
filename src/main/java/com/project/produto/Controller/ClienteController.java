@@ -18,7 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.project.produto.Model.Cliente;
 import com.project.produto.Repository.ClienteRepository;
-import com.project.produto.Service.implementsDTO.ClientProdutoImple;
+import com.project.produto.Service.ServiceDTO;
 import com.project.produto.dto.Client_ProdutoDTO;
 
 @RestController
@@ -26,16 +26,16 @@ import com.project.produto.dto.Client_ProdutoDTO;
 public class ClienteController {
      
 	 private ClienteRepository clienteRepository;
-	 private ClientProdutoImple clientProdutoImple;
+	 private ServiceDTO serviceRepo;
  	 
-	 public ClienteController(ClienteRepository clienteRepository, ClientProdutoImple clientProdutoImple) {
+	 public ClienteController(ClienteRepository clienteRepository, ServiceDTO serviceRepo) {
 		 this.clienteRepository = clienteRepository;
-		 this.clientProdutoImple = clientProdutoImple;
+		 this.serviceRepo = serviceRepo;
   	}
 	 
 	 @GetMapping("/log")
 	 public List<Client_ProdutoDTO> datasAllClientProd() {
-		 List<Client_ProdutoDTO> produtoCliLog = clientProdutoImple.ObterDetalhes();
+		 List<Client_ProdutoDTO> produtoCliLog = serviceRepo.ObterDetalhes();
 		 return produtoCliLog;
 	 }
 	 
