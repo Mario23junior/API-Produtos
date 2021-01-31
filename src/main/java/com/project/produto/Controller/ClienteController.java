@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.project.produto.Model.Cliente;
-import com.project.produto.Resitory.ClienteRepository;
+import com.project.produto.Repository.ClienteRepository;
 
 @RestController
 @RequestMapping("/api/gerence/client")
@@ -29,9 +29,7 @@ public class ClienteController {
 		 this.clienteRepository = clienteRepository;
   	}
 	 
-	 
-	 
-	 
+	
 	@GetMapping("/{id}")
 	public Cliente obterPorId(@PathVariable Integer id) {
 		 return clienteRepository

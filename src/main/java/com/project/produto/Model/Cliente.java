@@ -28,7 +28,8 @@ public class Cliente {
 	@Column(length = 20)
 	private String telefone;
 	
- 	@OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL , fetch = FetchType.LAZY )
+	
+ 	@OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL , fetch = FetchType.EAGER)
 	private List<Produto> produtos;
 
 	public Integer getId() {
@@ -80,14 +81,5 @@ public class Cliente {
 
 	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
-	}
-	
-	
-
-	
-	
-
-
-	
-	
+	}	
 }

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.project.produto.Model.Produto;
-import com.project.produto.Resitory.ProdutoRepository;
+import com.project.produto.Repository.ProdutoRepository;
 
 @RestController
 @RequestMapping("/api/gerence/product")
@@ -75,15 +75,3 @@ public class ControllerProduto {
 	
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
