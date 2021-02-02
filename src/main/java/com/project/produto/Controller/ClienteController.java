@@ -2,6 +2,8 @@ package com.project.produto.Controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
@@ -49,7 +51,7 @@ public class ClienteController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Cliente salvarCli(@RequestBody Cliente cliente) {
+	public Cliente salvarCli(@RequestBody @Valid Cliente cliente) {
 		return clienteRepository.save(cliente);
 	}
 	

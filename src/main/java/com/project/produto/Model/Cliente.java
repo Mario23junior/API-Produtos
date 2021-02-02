@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -20,6 +21,7 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
+	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String nome;
 	
 	private String email;
