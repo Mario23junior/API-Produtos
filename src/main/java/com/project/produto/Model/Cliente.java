@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.br.CPF;
@@ -26,7 +27,7 @@ public class Cliente {
 	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String nome;
 	
-	@NotEmpty(message = "{campo.email.obrigatorio}")
+	@Email(message = "{campo.email.obrigatorio}")
 	private String email;
 	
 	@CPF(message = "{campo.cpf.obrigatorio}")
