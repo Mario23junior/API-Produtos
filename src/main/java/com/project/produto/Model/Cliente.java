@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -24,15 +26,18 @@ public class Cliente {
 	@NotEmpty(message = "{campo.nome.obrigatorio}")
 	private String nome;
 	
+	@NotEmpty(message = "{campo.email.obrigatorio}")
 	private String email;
 	
+	@CPF(message = "{campo.cpf.obrigatorio}")
 	@Column(length = 11)
 	private String cpf;
 	
+	@NotEmpty(message = "{campo.telefone.obrigatorio}")
 	@Column(length = 20)
 	private String telefone;
 	
-	
+	@JsonIgnore
  	@OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL , fetch = FetchType.EAGER)
 	private List<Produto> produtos;
 

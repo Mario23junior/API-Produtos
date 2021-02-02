@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -20,14 +21,19 @@ public class Produto {
 	private Integer id;
 	
 	@Column(length = 40)
+	@NotEmpty(message = "{campo.nome.Produto.obrigatorio}")
 	private String nome;
 	
+	@NotEmpty(message = "{campo.descricao.Produto.obrigatorio}")
 	private String descricao;
 	
+	@NotEmpty(message = "{campo.preco.Produto.obrigatorio}")
 	private BigDecimal preco;
 	
+	@NotEmpty(message = "{campo.vendido.Produto.obrigatorio}")
 	private boolean vendido;
-		
+	
+	@NotEmpty(message = "{campo.quantidade.Produto.obrigatorio}")
 	private Integer quantidade;
 	
 	@JsonIgnore
