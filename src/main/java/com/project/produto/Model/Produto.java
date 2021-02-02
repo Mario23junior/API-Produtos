@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -27,14 +29,16 @@ public class Produto {
 	@NotEmpty(message = "{campo.descricao.Produto.obrigatorio}")
 	private String descricao;
 	
-	@NotEmpty(message = "{campo.preco.Produto.obrigatorio}")
-	private BigDecimal preco;
+	@DecimalMax("15000.00")
+	@DecimalMin("2.00")
+  	private BigDecimal preco;
 	
-	@NotEmpty(message = "{campo.vendido.Produto.obrigatorio}")
-	private boolean vendido;
+	@Column(nullable = false)
+   	private Boolean vendido;
 	
-	@NotEmpty(message = "{campo.quantidade.Produto.obrigatorio}")
-	private Integer quantidade;
+	@DecimalMax("5000.00")
+	@DecimalMin("0.0")
+  	private Integer quantidade;
 	
 	@JsonIgnore
 	@ManyToOne
