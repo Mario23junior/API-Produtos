@@ -37,7 +37,7 @@ public class Cliente {
 	@Column(length = 20)
 	private String telefone;
 	
-	@JsonIgnore
+	
  	@OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL , fetch = FetchType.EAGER)
 	private List<Produto> produtos;
 
